@@ -1,0 +1,35 @@
+{
+  "name": "nickstarlight/spdy",
+  "description": "Opinionated amalgamation of libraries for creating blazing fast, reliable and modern REST API's with PHP using RoadRunner",
+  "type": "project",
+  "license": "WTFPL",
+  "autoload": {
+    "psr-4": {
+      "Nickstarlight\\Spdy\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "NickStarlight"
+    }
+  ],
+  "scripts": {
+    "psalm": "./vendor/bin/psalm --show-info=true",
+    "phpcs": "./vendor/bin/php-cs-fixer fix",
+    "phpstan": "./vendor/bin/phpstan analyse src --level 9",
+    "post-install-cmd": [
+      "./vendor/bin/rr get-binary"
+    ]
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.8",
+    "vimeo/psalm": "^4.23",
+    "phpstan/phpstan": "^1.7"
+  },
+  "require": {
+    "php": "^8.1",
+    "nyholm/psr7": "1.4.1",
+    "spiral/roadrunner": "v2.10.2",
+    "league/route": "5.1.2"
+  }
+}
