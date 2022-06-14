@@ -1,7 +1,7 @@
 {
   "name": "nickstarlight/spdy",
   "description": "Opinionated amalgamation of libraries for creating blazing fast, reliable and modern REST API's with PHP using RoadRunner",
-  "type": "project",
+  "type": "library",
   "license": "WTFPL",
   "autoload": {
     "psr-4": {
