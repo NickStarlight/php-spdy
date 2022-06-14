@@ -31,5 +31,10 @@
     "nyholm/psr7": "1.4.1",
     "spiral/roadrunner": "v2.10.2",
     "league/route": "5.1.2"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
