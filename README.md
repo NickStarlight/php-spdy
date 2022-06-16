@@ -15,7 +15,11 @@ On the most high level definition, Spdy is just implementing battle tested, indu
 
 ## Getting Stared
 
-1. Run `composer install nickstarligh/spdy` - The script will download the appropriate RoadRunner binary.
+1. Install Spdy
+
+```shell
+composer require nickstarlight/spdy
+```
 
 2. Implement your application basic structure:
 
@@ -37,7 +41,13 @@ $router->get('/', fn () => [ 'message' => 'Hello World' ]);
 $app->run();
 ```
 
-3. Implement a basic Roadrunner PHP Worker configuration:
+3. Get the RoadRunner binary:
+
+```shell
+./vendor/bin/rr get-binary
+```
+
+4. Implement a basic Roadrunner PHP Worker configuration, create a new file named `.rr.yaml` with the following contents:
 
 ```yaml
 version: "2.7"
@@ -76,6 +86,11 @@ As mentioned, Spdy does not try to reinvent the wheel, all libraries used are we
 2. How do I configure the worker to fit my server needs? How do I setup healthchecks? Database connections? Environment variables?
 
    Roadrunner provides production-ready out-of-the-box configurations for those questions and many other features, check the [Roadrunner configuration file reference](https://roadrunner.dev/docs/intro-config/2.x/en).
+
+3. I would like a robust ORM, broadcasting, views, integration with ReactJS/Vue/Svelte, etc...
+
+   Spdy main goal is to provide a reliable, small and effient base for creating simple yet powerful REST API's, it does not attempt to replace complete frameworks.
+   If you need more features, you should defintely aim for fully-fledged frameworks! Some good examples are [Symfony](https://symfony.com), [Laravel](https://laravel.com), [Yii](https://www.yiiframework.com), [Laminas](https://getlaminas.org) and [Phalcon](https://phalcon.io/en-us).
 
 ## Benchmarks
 
