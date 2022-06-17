@@ -94,7 +94,7 @@ As mentioned, Spdy does not try to reinvent the wheel, all libraries used are we
 
 ## Benchmarks
 
-Method: ab -k -n 500000 -c 100 localhost:{DEFAULT_PORT}/
+Method: ab -k -n 500000 -c 100 localhost:8000/
 
 Machine: Debian 10(Buster) 16 GB RAM, 4 vCPUs, 320 GB SSD (AWS Lighsail)
 
@@ -105,7 +105,7 @@ Rules:
 - Two runs - One for warmup, one for benchmark.
 - Fresh instance with optimized scenarios for each framework/language.
 
-|                                              | PHP Spdy                                                                                                           | NodeJS 16 - Fastify                                                                                               |
+|                                              | PHP Spdy                                                                                                           | NodeJS 16 - Fastify¹                                                                                              |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
 | Time taken for tests                         | 30.650 seconds                                                                                                     | 10.603 seconds                                                                                                    |
 | Complete requests                            | 500000                                                                                                             | 500000                                                                                                            |
@@ -114,6 +114,8 @@ Rules:
 | Time per request (mean)                      | 6.130 ms                                                                                                           | 2.121 ms                                                                                                          |
 | Transfer rate                                | 2612.64 Kbytes/sec                                                                                                 | 8657.32 Kbytes/sec                                                                                                |
 | Percentage of requests served in miliseconds | 50% 6 <br> 66% 6 <br> 75% 6 <br> 80% 6 <br> 90% 7 <br> 95% 8 <br> 98% 9 <br> 99% 10 <br> 100% 31 (longest request) | 50% 2 <br> 66% 2 <br> 75% 3 <br> 80% 3 <br> 90% 3 <br> 95% 4 <br> 98% 5 <br> 99% 8 <br> 100% 63 (longest request) |
+
+¹ NodeJS used [PM2](https://pm2.keymetrics.io) for spawning 4 workers to level things with RoadRunner
 
 ## License
 
