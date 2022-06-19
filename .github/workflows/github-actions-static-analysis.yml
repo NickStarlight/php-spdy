@@ -34,4 +34,4 @@ jobs:
           REQUIRE_DEV: true
         with:
           entrypoint: /composer/vendor/bin/phpstan
-          args: analyze --no-progress --level 9
+          args: analyze --no-progress --level=9
