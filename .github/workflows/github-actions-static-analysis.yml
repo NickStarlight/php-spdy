@@ -24,6 +24,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - uses: php-actions/composer@v6
+        with:
+          args: --ignore-platform-reqs
+
       - name: PHPStan
         uses: docker://oskarstark/phpstan-ga:1.4.6
         env:
