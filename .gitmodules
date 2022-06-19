@@ -1,0 +1,3 @@
+[submodule "php-spdy-benchmarks"]
+	path = benchmarks
+	url = https://github.com/NickStarlight/php-spdy-benchmarks

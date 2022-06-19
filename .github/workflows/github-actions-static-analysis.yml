@@ -15,21 +15,23 @@ jobs:
           security_analysis: true
           report_file: results.sarif
           composer_ignore_platform_reqs: true
-      - name: Upload Security Analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: results.sarif
 
   phpstan:
     name: PHPStan
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - uses: php-actions/composer@v6
         with:
           args: --ignore-platform-reqs
-      - uses: php-actions/phpstan@v3
+
+      - name: PHPStan
+        uses: docker://oskarstark/phpstan-ga:0.12.48
+        env:
+          REQUIRE_DEV: true
         with:
-          path: src/
-          php_version: "8.1"
-          level: 9
+          entrypoint: /composer/vendor/bin/phpstan
+          args: analyze --no-progress --level 9
